@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+    
+        .box {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            /* 过度属性 ：要变的属性 时长 速度如何变化 事件发生延长时间几秒*/
+            transition: all 3s linear 0s;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="box" class="box" ></div>
+    <button id="btn">按我</button>
+    <script>
+      var btn = document.querySelector("#btn");
+      var box = document.querySelector("#box");
+      btn.onclick = function () {
+            box.style.width = '500px';
+            box.style.backgroundColor = 'blue';
+    }
+    </script>
+  </body>
+</html>

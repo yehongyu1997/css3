@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极客学习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+            z-index: 999;
+            background-color: white;
+        }
+
+        header h3 {
+            width: 120px;
+            height: 50px;
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            background: url(../images/jikebg1.png) no-repeat;
+            background-size: contain;
+        }
+
+        header .nav {
+            width: 1233px;
+            height: 40px;
+            position: absolute;
+            top: 6px;
+            left: 300px;
+            background-color: white;
+
+        }
+
+        header .nav li {
+            float: left;
+            margin-right: 5px;
+            height: 40px;
+            width: 200px;
+            background-color: pink;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+        }
+
+        header .xiazai {
+            height: 40px;
+            width: 120px;
+            border-radius: 8px;
+            position: absolute;
+            top: 4px;
+            background-color: rgb(199, 90, 90);
+            display: none;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+
+        }
+
+        .box {
+            height: 2000px;
+            width: 1200px;
+            background-color: rgb(236, 229, 229);
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            margin-left: -600px;
+        }
+
+        .kecheng {
+            width: 100%;
+            height: 50px;
+            /* background-color: rgb(87, 185, 83); */
+          position: fixed;
+            top: 60px;
+            display: none;
+            z-index: 999;
+
+        }
+
+        .kecheng ul li {
+            float: left;
+            width: 100px;
+            height: 48px;
+            line-height: 50px;
+            text-align: center;
+            background-color: rgb(185, 148, 148);
+        }
+
+        @media screen and (max-width: 700px) {
+            header .xiazai {
+                display: block;
+                right: 20px;
+                
+            }
+
+            header .nav {
+                display: none;
+            }
+
+            .box {
+                top: 102px;
+            }
+
+            .kecheng {
+                display: block;
+              
+                top: 50px;
+                box-shadow: 2px 2px 2px rgba(136, 139, 138, 0.8);
+              
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3></h3>
+        <ul class="nav">
+            <li>栏目</li>
+            <li>栏目</li>
+            <li>栏目</li>
+            <li>栏目</li>
+            <li>栏目</li>
+            <li>栏目</li>
+        </ul>
+        <div class="xiazai">登录 | 下载APP</div>
+    </header>
+    <div class="kecheng">
+        <ul>
+            <li>
+                课程
+            </li>
+            <li>
+                每日一课
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+
+    </div>
+</body>
+
+</html>
