@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360过渡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            height: 380px;
+            width: 1240px;
+            margin: 30px auto;
+            background-color: pink;
+            position: relative;
+            /* g给父级盒子一个溢出隐藏，内部的盒子全部都会溢出隐藏 */
+            overflow: hidden;
+        }
+
+        .box ul {
+            list-style: none;
+        }
+
+        .box ul li {
+            float: left;
+            width: 310px;
+            height: 380px;
+            transition: all 1s ease 0s;
+            position: relative;
+        }
+
+        /* 给盒子一个hover，盒子内部的li如何变化的 */
+        .box:hover ul li {
+            width: 295px;
+        }
+
+        /* 在上一部的前提下，内部的Li添加一个hover,li是如何变化的 */
+        .box:hover ul li:hover {
+            width: 355px;
+        }
+
+        .box ul li .mask {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 1s ease 0s;
+        }
+
+        .box:hover ul li:hover .mask {
+            opacity: 1;
+        }
+
+        .box ul li .mask.no1 {
+            background: linear-gradient(0deg, #7b43ff, #a05bff);
+        }
+
+        .box ul li .mask.no2 {
+            background: linear-gradient(0deg, #05b447, #02de8e);
+        }
+
+        .box ul li .mask.no3 {
+            background: linear-gradient(0deg, #eb4940, #ff9b6a);
+        }
+
+        .box ul li .mask.no4 {
+            background: linear-gradient(0deg, #6d3aff, #5d84ff);
+        }
+        .box ul li .info{
+            position: absolute;
+            top: 230px;
+            left: 30px;
+            color: aliceblue;
+            transition: all 1s ease 0s;
+        }
+        .box ul li .info p {
+            position: absolute;
+            width: 250px;
+            top: 380px;
+            left: 0px;
+        }
+        .box:hover ul li:hover  .info{
+            top: 50px;
+        }
+        .box:hover ul li:hover p{
+            top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <img src="../images/3601.png" alt="">
+                <div class="mask no1"></div>
+                <div class="info">
+                    <h3>权限管理</h3>
+                   <p>像管理手机软件一样，轻松管理电脑软件里的广告弹窗、开机自启、捆绑推广等敏感权限，让电脑使用更加自在。</p>
+                </div>
+            </li>
+            <li>
+                <img src="../images/3602.png" alt="">
+                <div class="mask no2"></div>
+                <div class="info">
+                    <h3>权限管理</h3>
+                    <p>像管理手机软件一样，轻松管理电脑软件里的广告弹窗、开机自启、捆绑推广等敏感权限，让电脑使用更加自在。</p>
+                </div>
+            </li>
+            <li>
+                <img src="../images/3603.png" alt="">
+                <div class="mask no3"></div>
+                <div class="info">
+                    <h3>权限管理</h3>
+                    <p>像管理手机软件一样，轻松管理电脑软件里的广告弹窗、开机自启、捆绑推广等敏感权限，让电脑使用更加自在。</p>
+                </div>
+            </li>
+            <li>
+                <img src="../images/3604.png" alt="">
+                <div class="mask no4"></div>
+                <div class="info">
+                    <h3>权限管理</h3>
+                    <p>像管理手机软件一样，轻松管理电脑软件里的广告弹窗、开机自启、捆绑推广等敏感权限，让电脑使用更加自在。</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
