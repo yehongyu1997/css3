@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异形滚动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1200px;
+            height: 500px;
+            background-color: rgb(207, 118, 118);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .box ul {
+            list-style: none;
+        }
+
+        .box ul li.no3 {
+            position: absolute;
+            bottom: 0;
+            width: 220px;
+            height: 458px;
+            left: 50%;
+            margin-left: -110px;
+            background-color: rgb(102, 204, 88);
+            opacity: 1;
+            transition: all 1s ease 0s;
+        }
+
+        .box ul li.no2 {
+            position: absolute;
+            bottom: 0;
+            width: 180px;
+            height: 375px;
+            left: 30%;
+            margin-left: -110px;
+            background-color: rgb(102, 204, 88);
+            opacity: 1;
+            transition: all 1s ease 0s;
+        }
+
+        .box ul li.no4 {
+            position: absolute;
+            bottom: 0;
+            width: 180px;
+            height: 375px;
+            left: 70%;
+            margin-left: -70px;
+            background-color: rgb(102, 204, 88);
+            opacity: 1;
+            transition: all 1s ease 0s;
+        }
+
+        .box ul li.no1 {
+            position: absolute;
+            bottom: 0;
+            width: 140px;
+            height: 292px;
+            left: 10%;
+            margin-left: -70px;
+            background-color: rgb(102, 204, 88);
+            opacity: 1;
+            transition: all 1s ease 0s;
+        }
+
+        .box ul li.no5 {
+            position: absolute;
+            bottom: 0;
+            width: 140px;
+            height: 292px;
+            left: 90%;
+            margin-left: -70px;
+            background-color: rgb(102, 204, 88);
+            opacity: 1;
+            transition: all 1s ease 0s;
+        }
+
+        .box ul li.no0 {
+            position: absolute;
+            bottom: 0;
+            width: 100px;
+            height: 220px;
+            left: -100px;
+            background-color: rgb(102, 204, 88);
+            opacity: 0;
+            transition: all 1s ease 0s;
+        }
+
+        .box ul li.no6 {
+            position: absolute;
+            bottom: 0;
+            width: 100px;
+            height: 220px;
+            left: 100%;
+            background-color: rgb(102, 204, 88);
+            opacity: 0;
+            transition: all 1s ease 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li class="no0">0</li>
+            <li class="no1">1</li>
+            <li class="no2">2</li>
+            <li class="no3">3</li>
+            <li class="no4">4</li>
+            <li class="no5">5</li>
+            <li class="no6">6</li>
+        </ul>
+
+    </div>
+    <button id="btn1">left</button>
+    <button id="btn2">right</button>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var $lis = $('.box ul li')
+        // 定义一个数组来存放类名
+        var arr = ['no0', 'no1', 'no2', 'no3', 'no4', 'no5', 'no6'];
+        // 节流锁
+        var lock = true;
+        // 右键点击事件
+        $('#btn2').click(function () {
+            // 如果没锁，那么什么也不做就返回
+            if (!lock) return;
+            // 进来就关锁
+            lock = false;
+            // 设置一个延时器，起到节流的作用（也就是函数防抖），在600后，在把锁打开
+            setTimeout(function () {
+                lock = true;
+            }, 600)
+            // 尾插头部元素
+            arr.push(arr.shift());
+            // 遍历li，来给li重新添加类名
+            for (var i = 0; i < arr.length; i++) {
+                $lis.eq(i).attr('class', arr[i])
+            }
+        })
+           // 左键点击事件
+        $('#btn1').click(function () {
+            // 如果没锁，那么什么也不做就返回
+            if (!lock) return;
+            // 进来就关锁
+            lock = false;
+            // 设置一个延时器，起到节流的作用（也就是函数防抖），在600后，在把锁打开
+            setTimeout(function () {
+                lock = true;
+            }, 600)
+             // 队尾删除一项，并且把这项插入到队首
+             arr.unshift(arr.pop());
+            // 遍历li，来给li重新添加类名
+            for (var i = 0; i < arr.length; i++) {
+                $lis.eq(i).attr('class', arr[i])
+            }
+        })
+         // 总结：push尾插，pop尾删，unshift头插，shift头删
+    </script>
+</body>
+
+</html>
